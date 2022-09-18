@@ -14,7 +14,7 @@ const NewGetTodos = async () => {
 
     response1 = await fetch('Thejsons/B.json')
 
-    if(response.status !== 200){
+    if(response1.status !== 200){
         throw new Error('cannot fetch the data')
     }
 
@@ -22,7 +22,7 @@ const NewGetTodos = async () => {
 
     response2 = await fetch('Thejsons/C.json')
 
-    if(response.status !== 200){
+    if(response2.status !== 200){
         throw new Error('cannot fetch the data')
     }
 
