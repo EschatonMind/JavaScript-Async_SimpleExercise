@@ -1,6 +1,43 @@
 // fetching data using The fetch API
 
-function MyFetch(){
+// using async and await fetch
+
+const NewGetTodos = async () => {
+
+    const response = await fetch('Thejsons/A.json')
+
+    if(response.status !== 200){
+        throw new Error('cannot fetch the data')
+    }
+
+    const data = await response.json()
+
+    response1 = await fetch('Thejsons/B.json')
+
+    if(response.status !== 200){
+        throw new Error('cannot fetch the data')
+    }
+
+    data1 = await response1.json()
+
+    response2 = await fetch('Thejsons/C.json')
+
+    if(response.status !== 200){
+        throw new Error('cannot fetch the data')
+    }
+
+    data2 = await response2.json()
+
+    const finaldata = [data,data1,data2]
+
+    return finaldata
+
+}
+function MyFetch() {
+    // using regular fetch API
+
+    console.log('-----------------------using regular fetch API')
+
     fetch('Thejsons/A.json').then((response) => {
         console.log('resolved',response)
         return response.json()
@@ -18,8 +55,16 @@ function MyFetch(){
         return response.json()
     }).then(data => {
         console.log(data)
+        console.log('-----------------------using async and await fetch')
+        NewGetTodos()
+        .then( data => console.log('resolved : ', data))
+        .catch(err => console.log('rejected : ', err.message))
     }).catch(err => {
         console.log('rejected')
+        console.log('-----------------------using async and await fetch')
+        NewGetTodos()
+        .then( data => console.log('resolved : ', data))
+        .catch(err => console.log('rejected : ', err.message))
     })
 }
 
